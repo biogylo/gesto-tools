@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+
+<title style = "display: none;">GESTO dataset</title>
+
+<link rel="icon" type="image/png" href="imagenes/gecko.png" sizes="32x32">
+<head>
+	
+	
+  <script src="face-api/face-api.js"></script>
+  <script src="js/commons.js"></script>
+  <script src="js/cookies.js"></script>
+  <script src="js/faceDetectionControls.js"></script>
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
+  
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  
+  <audio id="inst1" src="sonidos/inst1.m4a" muted></audio>
+  <audio id="bgmusic" src="sonidos/jazz.mp3" muted></audio>
+</head>
+
+
+<body>
+
+<div class= "appform" id = "appform" style = "font-family:Tahoma, Geneva, sans-serif;font-size:20px;" width="60%">
+		  <h1>Experimento</h1>
+<h3>GESTO dataset julio 2020</h3>
+	<h3>Información del proyecto</h3>
+	
+	<p>Este sitio web es parte de un proyecto de investigación llamado: 
+		<u><b><em>"Reconocimiento de expresiones faciales utilizando el dataset GESTO"</em></b></u>.
+		
+		Con el fin de motivar la participación de una gran cantidad de personas 
+		y asi producir un conjunto de datos de alta calidad,se optó por realizar un juego con premios.</p>
+		Este proyecto está en desarrollo por <b>Juan Francisco Navarro</b>, estudiante del 6to semestre de la carrera de 
+		<b>Bioingeniería</b> en la <b>Universidad Autónoma de Baja California</b>, cuyo correo es 
+		<em>navarro.juan@uabc.edu.mx</em>. 
+
+	<h4>¿Cómo obtener uno de los premios?</h4>
+	
+	<p>Debes participar en este juego/experimento de visión computacional. 
+	
+	Participar en el juego es gratis.
+	Este consiste en hacer una aportación a la sociedad,
+	al ser parte de un experimento científico en este mismo sitio web. 
+	Para la selección de un ganador, se tomará a consideración la calidad de 
+	las imágenes capturadas, y el  alcance en redes sociales.</p>
+	
+
+
+	<h4>Premios del juego:</h4>
+	
+	  <img src="imagenes/premios.png" style='height: 100%; width: 100%; object-fit: contain' alt="Premios">
+	  </ul>
+	En caso de que el alcance de este experimento sea mayor al esperado,
+	la cantidad de premios incrementará en gran medida y se actualizará
+	esta página con los nuevos premios.
+	<h4>¿Qué necesito para ser parte del experimento?</h4>
+	
+	<p>Ser mayor de 16 años, tener una computadora conectada a internet con webcam, ademas de tan sólo 2 minutos de tu tiempo.</p>
+	
+	<h4>Criterios para el reparto de los premios</h4>
+	<ul>
+	Los ganadores serán aquellos cuyas imágenes cumplan mejor estos aspectos:
+	  <li>1. Mejor seguimiento a las indicaciones del experimento.</li>
+	  <li>2. Mayor relevancia de los gestos faciales.</li>
+	  <li>3. Baja borrosidad de las imágenes.</li>
+	</ul>
+	
+	<p>
+		En pocas palabras, que aquellos que sigan mejor las instrucciones. Para más información
+		leer <a href="documentos/metricas_objetivas.pdf" target="_blank">[MÉTRICAS OBJETIVAS]</a>
+	</p>
+	
+	Aquellas personas que repitan el experimento, solo se tomará en cuenta
+	su primer intento.
+	
+	<p>La entrega de premios se hará tentativamente el <b><em>sábado 1 de Agosto del 2020</em></b>. Con la posibilidad de cambio bajo aviso, en
+	caso de razones de causa mayor. </p>
+	
+	<h4>¿Qué datos seran recabados?</h4>
+	
+	<p>Se tomaran fotos del rostro del participante haciendo diferentes gestos faciales en distintos ángulos.
+	Se tomará el nombre completo del participante, con el fin de darle un agradecimiento en la publicación científica 
+	que se va a realizar, en caso de que este no quiera que se haga público, podrá optar por no hacerlo.</p>
+
+	<h4>¿Para que se utilizarán mis fotos?</h4>
+	
+	<p>Las fotografías seran utilizadas para entrenar algoritmos computacionales y de inteligencia artificial, 
+		con el fin de estudiar métodos de reconocimiento de rostros y gestos, 
+		además de desarrollar herramientas que puedan generar caras o expresiones artificiales.
+		
+		Estarán al acceso de investigadores científicos y desarrolladores de algoritmos.</p>
+
+	<form method="post">
+	  <h2>Llena tus datos</h2>
+	  <p><label > Nombre(s): <input id="firstname" name="firstname" required="" type="text" > </input></label>
+	  <label for="lastname"> Apellidos: <input id="lastname" name="lastname" required="" type="text" /></label>
+	  </p>
+
+	  <p><label for="email">Escribe tu correo electrónico: <input id="email" name="email" required="" type="email" /></label></p>
+	<label for="cellphone">Escribe tu numero de teléfono celular: <input id="cellphone" name="cellphone" required="" type="number" /></label>
+
+	  <p>Antes de seguir al experimento, debes leer el siguiente aviso de privacidad y aceptarlo,
+			con el fin de que quede claro lo que se hará con los datos obtenidos en este experimento.</p>
+	  <p>
+	  <div style="height: 12em; border: 1px solid #000000; padding:0em 2em 2em 2em;;overflow: auto;">
+		<h4>Aviso de privacidad</h4>
+		<p>El organizador de esta promoción, de nombre Juan Francisco Navarro, con domicilio en J.M. Larroque 7441, 
+			El Rubí, Tijuana, Baja California declara que utilizará las fotografías capturadas en el experimento 
+			para realizar la construcción de un conjunto de datos (dataset) 
+			bajo licencia ODC-BY, Open Data Commons Attribution License.</p>
+			
+		<p><p>Los datos de identificación (correo electrónico, teléfono celular, nombre y apellidos) 
+		serán utilizados con el fin de contactarse con el usuario para la premiación y seguimiento del experimento.
+		Para mayor información acerca del tratamiento y de los derechos que puede hacer valer, 
+		usted puede acceder al aviso de privacidad completo a través del siguiente link: <a href="documentos/aviso_de_privacidad.pdf" target="_blank">[AVISO COMPLETO]</a>.</p>
+	  </div>
+
+	  <p>Al hacer click en el siguiente botón, usted acepta el aviso de privacidad y las condiciones del juego. 
+	  Acepta además, recibir un correo electrónico y/o mensajería movil de seguimiento, 
+	  donde recibirá más información relevante a la premiación y la investigación desarrollada.</p>
+
+	  <p style="text-align: center;"><input id ="start" type="submit" value="Iniciar el experimento" /></p>
+	</form>
+</div>
+<div id = "experiment" style='display:none'>
+		<h4>
+		<div style= "width:50%;margin: auto">
+		<div id="error" style="display:none;color:#FF0000">Error:</div>
+		<div id="warning" ></div> <!-- THIS IS where the camera warning is made-->
+		</div>
+		</h4>
+		
+	<div id="start-button">
+		<div class="center">
+			<button style="font-size:60pt" onclick="showExperiment('toggle')">Click para iniciar el experimento</button>
+		</div>
+	</div>
+	
+	<div id="toggle" style="display:none">
+	  <div id="navbar"></div>
+	  <div class="center-content page-container;text-align:center">
+
+		<div class="progress" id="loader">
+		  <div class="indeterminate"></div>
+		</div>
+		
+		
+		<table style="width:80%;padding:20">
+			<th width = "45%" id = "emotion">
+				<div style="position: relative" class="margin">
+				  <video onloadedmetadata="onPlay(this)" autoplay style="vertical-align: bottom;" width="100%" height="100%" id="inputVideo" autoplay muted playsinline></video>
+				  
+				  <canvas id="overlay" style="vertical-align: bottom;" width="100%" height="100%" /><!-- This is where the landmarks will be shown in-->
+				  <label id="hints" style="vertical-align: bottom;" width="100%"></label>  <!-- This is where the landmarks will be shown in-->
+
+				</div>
+			</th>
+			<th width = "10%">
+			</th>
+			<th width = "45%">
+				<h4>
+					<div id="instructions" style="position: relative">	
+					</div>
+					
+					<center>
+						<div id="continue-button" >
+								<button style="background-color:#00ff44;font-size:30pt;width:50%;margin-top:30px" onclick="continueExperiment()">Click para avanzar</button>
+						</div>
+					</center>
+				</h4>
+				
+			</th>
+		</table>
+		<div class="row side-by-side">
+		
+	<canvas id="supercanvas" width = "640" height = "480" style="display:none" ></canvas>
+
+	
+		</div>
+
+	</div>
+</div>
+</div>
+
+<div class= "appform" id= "donemsg" style = "display:none;font-family:Tahoma, Geneva, sans-serif;font-size:20px;" width="60%">
+<h2>¡Has hecho el experimento de forma exitosa!</h2>
+¡Muchas gracias por participar <b id = "donename">test</b>!, tus datos fueron capturados y seras notificado
+dentro de los próximos días con respecto a la premiación de este experimento.
+<p><b>NOTA: NO PARTICIPES OTRA VEZ, TUS SIGUIENTES INTENTOS NO SE TOMARÁN EN CUENTA</b></p>
+
+<p>
+Se agradece y aprecia ampliamente tu aportación a esta investigación y tu motivación como ciudadano
+para participar en la ciencia, a  pesar de la contigencia de COVID-19. <u>Se te
+invita a que sigas compartiendo esta página y la información relacionada, para
+incrementar aun más tu posibilidad de ganar.</u>
+
+<p>
+Las métricas para la selección de los ganadores están aqui:</p>
+<p><a href="documentos/metricas_objetivas.pdf" target="_blank">[MÉTRICAS OBJETIVAS]</a>
+</p>
+<p>El aviso de privacidad completo esta aquí:</p>
+<p><a href="documentos/aviso_de_privacidad.pdf" target="_blank">[AVISO COMPLETO]</a>.</p>
+</p>	
+<p> La entrega de premios se hará tentativamente el <b><em>sábado 1 de Agosto del 2020</em></b>. 
+En los días cercanos a este, podrás entrar a esta misma página <b>(<em> biojuan.com </em>)</b>
+y ver más información al respecto. La fecha está con
+la posibilidad de cambio bajo aviso, en caso de razones de causa mayor. </p> 
+</div>
+  </body>
+<script id = "formcode">
+
+$("form").submit(function(e){
+  e.preventDefault();
+  let form = $(this).serialize();
+  $.ajax({
+
+    method: 'POST',
+    data: form,
+    dataType: 'json',
+    success: function(data){ 
+      //success function
+      //return data form server
+	  try{
+	  userid = data['responseText']
+	  }
+	  finally{
+	  }
+	  if (!userid)
+	  {
+	  
+	  }
+	  else{
+			
+			console.log($("#firstname").val())
+			$("#donename").text($("#firstname").val())
+			document.getElementById("start").style.display = "none"
+			document.getElementById("appform").style.display = "none"
+			document.getElementById("experiment").style.display = "block"
+	  }
+    },
+    error: function(data){ //error function
+	try{
+	  userid = data['responseText']
+	  }
+	  finally{
+	  }
+	  if (!userid)
+	  {
+	  
+	  }
+	  else{
+			
+			
+			
+			console.log($("#firstname").val())
+			$("#donename").text($("#firstname").val())
+			document.getElementById("start").style.display = "none"
+			document.getElementById("appform").style.display = "none"
+			document.getElementById("experiment").style.display = "block"
+			
+			
+	  }
+    }
+  });
+
+});
+
+</script>
+  <script id = "experimentcode">
+  
+	if (getCookie("experiment_done") != "")
+	{	
+	document.getElementById("appform").style.display = "none"
+	$("#donename").text(getCookie("name"))
+		document.getElementById("experiment").style.display = "none"
+					document.getElementById("donemsg").style.display = "block"
+	}
+	else
+	{	
+		
+	}
+	var name = ""
+    let forwardTimes = []
+    let withBoxes = false
+	var cvready = false
+	
+	let gestures = ["test","neutral","happy","angry","sad"]
+	let colors = ["black","gray","yellow","red","blue","aqua","gray","yellow","red","blue","aqua"]
+	let gesture = gestures[0]
+	let cara = ""
+	let pics = 0
+	let batch = 0
+	let total_batches = 2
+	
+	let state = -1
+	let userid = ""
+	let pics_per_emotion = 25
+	let frames_per_pic = 5
+	var frames = 0
+	var prepare_frames = 20
+	var finished = false
+	let mode_label = ""
+	
+	var xhr = null
+	var horizontal = true
+	var ready = false
+	var continueButton = document.getElementById("continue-button");
+	var musicon = true
+	var stream
+	
+	
+	function sendPic(video,gesture)
+	{
+		const canvas = document.getElementById('supercanvas');
+		var ctx = canvas.getContext('2d');
+		
+		ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+		
+		png = canvas.toDataURL("image/webp",0.75);
+		gesture = gestures[state]
+
+		var json= {"userid":userid,"number":pics,"gesture":gesture,"img":png};
+		var msg = JSON.stringify(json);
+		xhr = new XMLHttpRequest();
+		
+		xhr.open('POST',"//biojuan.com/xml",true); // 
+		xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xhr.send(msg);
+		
+		console.log('file is saved');
+	   
+	}
+
+    async function onPlay() {
+      const videoEl = $('#inputVideo').get(0)
+	  
+      if(videoEl.paused || videoEl.ended || !isFaceDetectionModelLoaded() && finished == false)
+        return setTimeout(() => onPlay())
+
+
+      const options = getFaceDetectorOptions()
+
+      const ts = Date.now()
+
+      const result = await faceapi.detectSingleFace(videoEl, options).withFaceLandmarks()
+
+      if (result) {
+        const canvas = $('#overlay').get(0);
+        const dims = faceapi.matchDimensions(canvas, videoEl, true)	;
+        const resizedResult = faceapi.resizeResults(result, dims)	;
+		
+		
+        if (withBoxes) {
+          faceapi.draw.drawDetections(canvas, resizedResult)
+        }
+        faceapi.draw.drawFaceLandmarks(canvas, resizedResult)
+		
+		
+		$('#overlay').height($('#inputVideo').height());
+		$('#overlay').width($('#inputVideo').width());
+		
+		if (state >= 0 && ready == true){
+			canvas_points(100*pics/pics_per_emotion)
+			frames++
+			
+			if (frames >= prepare_frames & frames % frames_per_pic == 0){
+				sendPic(videoEl,gesture)
+				pics++
+				
+				console.log(pics)
+			}
+			if (pics >= pics_per_emotion)
+			{
+				pics = 0
+				frames = 1
+				console.log("DONE")
+				continueExperiment()
+			}
+		}
+	}
+		
+      setTimeout(() => onPlay())
+    }
+
+    async function run() {
+      // load face detection and face landmark models
+	  
+      await changeFaceDetector(TINY_FACE_DETECTOR)
+      await faceapi.loadFaceLandmarkModel('/')
+      changeInputSize(128)
+
+      // try to access users webcam and stream the images
+      // to the video element
+			
+			try	{
+				stream = await navigator.mediaDevices.getUserMedia(
+				{ video:  {
+							width:{ min: 1, ideal: 640, max: 640 },
+							height:{ min: 1, ideal: 480, max: 480 }
+							
+							} });
+				cameraSuccessful()
+			}
+			
+			catch(err){
+				cameraError(err)
+				
+			}
+      const videoEl = $('#inputVideo').get(0)
+      videoEl.srcObject = stream
+	  
+    }
+	
+
+	function cameraError(err){	
+		document.getElementById('error').style.display = 'block'
+		var message
+		
+		if (err.name = "TypeError"){
+			message = `Parece que estas en un celular/tablet o explorador anticuado. 
+						Desafortunadamente no podrás participar en el experimento por esta razón,
+						a menos que accedas a este sitio desde una computadora con un explorador moderno (Chrome, Opera, Mozilla, Edge).
+						Tus datos no fueron registrados.`
+		}
+		
+		if (err.name = "NotAllowedError")
+		{
+			message = `Denegaste el acceso a la cámara. El experimento no podrá continuar.
+						Si deseas continuar deberás intentar entrar en modo incógnito, pues tu navegador
+						ha bloqueado la página. Tus datos no fueron registrados.`
+		}
+		
+		if (err.name = "NotReadableError")
+		{
+			message = `Parece que otra aplicación esta usando la cámara de tu computadora o estas en un teléfono móvil o tablet, por lo que
+						esta aplicación no puede acceder a ella. Si aun quieres participar, asegurate de entrar en una computadora sin ninguna app
+						que genere interrupciones y refresca
+						esta página. Tus datos no fueron registrados.`
+		}
+		$('#warning').html(message + " <p><b>"+ err.name + ":</b> " + err.message+"</p>");
+	}
+	
+	function cameraWait(){	
+	
+		
+		const message = `Para el desarrollo del experimento, es necesario que aceptes el acceso a la cámara web`;
+		$('#warning').text(message);
+	}
+	
+	function cameraSuccessful(){
+		$('#warning').text("");
+		  setTimeout(function () { //This code waits 5 seconds to let the user read the information on screen
+			
+			$('#warning').text("");
+			
+			}, 5000);
+		
+		updateState()
+	}
+	
+	function showMessage(message,showButton=false){
+		$('#instructions').text(message)
+		
+		if (showButton){
+		setTimeout(function () { document.getElementById('continue-button').style.display = "block"
+									
+									}, 2000)
+			
+		}
+		else{
+			document.getElementById('continue-button').style.display = "none"
+		}
+	}
+	
+	
+	function continueExperiment(){
+	if (ready == false){
+			showMessage(mode_label,false)
+			ready = true
+			}
+	else{
+		ready = false
+		showMessage("",false)
+		slowlyUpdateState(200)
+	}
+		
+	}
+	
+	function slowlyUpdateState(duration){
+		setTimeout(function () { //This code waits 5 seconds to let the user read the information on screen
+									
+									updateState()
+									
+									}, duration)
+	}
+	
+	function updateState(){
+		var message = ""
+		var button = true
+		
+		state++
+		var color = colors[state]
+		switch (state){
+			case 0:
+				message = `Antes de avanzar, asegúrate de que tu rostro esté bien iluminado.
+							Tendras que mover tu cara en varias direcciones
+							hasta que se llene la barra de puntos rojos. Da click en el botón cuando estes listo para hacerlo`
+							
+				cara = "Haz la cara que sea"
+				mode_label = "Realiza cualquier gesto. Mueve tu cara suavemente en varias direcciones."
+				break;
+			case 1: 
+				message = `Ahora tendrás que mostrar una cara neutral, sin ninguna emoción.
+							Da click cuando estés listo.`
+				cara = "Haz una cara neutral"
+				mode_label = "Cara neutral. Mueve tu cara suavemente en varias direcciones."
+				break;
+			case 2:
+				message = `Ahora deberás mostrar una cara alegre. Da click cuando estés listo.`
+				cara = "Haz una cara alegre"
+				mode_label = "Cara alegre. Mueve tu cara suavemente en varias direcciones."
+				break;
+			case 3:
+				message = `Ahora deberas enseñar una cara de enojo. Da click cuando estés listo.`
+				cara = "Haz una cara de enojo"
+				mode_label = "Cara de enojo. Mueve tu cara suavemente en varias direcciones."
+				break;
+			case 4:
+				message = `Por último deberas enseñar una cara de tristeza. Da click cuando estés listo.`
+				cara = "Haz una cara de tristeza"
+				mode_label = "Cara de tristeza. Mueve tu cara suavemente en varias direcciones."
+				break;
+			
+			case 5:
+				
+				message = `¡Lo hiciste!`
+				button = false
+				color = "fuchsia"
+				finished = true
+				
+				setTimeout(function () { //This code waits 5 seconds to let the user read the information on screen
+					setCookie("experiment_done","True",100)
+					setCookie("name",$("#firstname").val(),100)
+					document.getElementById("experiment").style.display = "none"
+					document.getElementById("donemsg").style.display = "block"
+					stream.getTracks().forEach(track => track.stop())
+				
+				}, 1200);
+				break;
+		
+		}
+		
+		var cell = document.getElementById("emotion")
+		
+		showMessage(message,button)
+		console.log(color)
+		console.log(colourNameToHex(color))
+		cell.setAttribute("bgcolor",colourNameToHex(color))
+		
+	}
+	
+    function updateResults() {}
+      
+	  function showExperiment(toggle){
+	  if (userid){
+			document.getElementById('continue-button').style.display = "none"
+			document.getElementById(toggle).style.display = 'block';
+			$('#start-button').hide()
+			document.getElementById('inst1').play();
+			document.getElementById('inst1').muted = false;
+			document.getElementById('bgmusic').play();
+			document.getElementById('bgmusic').volume = 0.3;
+			document.getElementById('bgmusic').muted = false;
+			
+			
+			
+			
+			cameraWait()
+			
+			setTimeout(function () { //This code waits 5 seconds to let the user read the information on screen
+									initFaceDetectionControls()
+							
+									run()
+									
+									}, 5000)
+									
+								}
+	  else
+	  {
+	  document.getElementById('continue-button').style.display = "none"
+		$('#warning').text("El usuario no se pudo registrar correctamente. Favor de refrescar la página y llenar tus datos de nuevo");
+	  }
+	}
+	
+	
+		function canvas_points(percent,horizontal =true)
+		{
+			var c = document.getElementById("overlay");
+			var ctx = c.getContext("2d");
+			
+			var points = 10
+			var sep = 20
+			
+			var w = c.width
+			var h = c.height
+			var x = w/2 + sep*points/2
+			var y = h/2.5
+		
+			var current = Math.round(points*(percent%100)/100)
+			
+			for (var i = 0; i<points;i++)
+			{
+				ctx.beginPath();
+				if (horizontal) ctx.arc(x-i*sep, y, 5, 0, 2 * Math.PI, true);
+				else ctx.arc(x, y-i*sep, 5, 0, 2 * Math.PI, true);
+				if (i <= current){
+					ctx.lineWidth = 4;
+					ctx.strokeStyle = '#FF0000';
+				}
+				
+				else
+				{
+					ctx.lineWidth = 3;
+					ctx.strokeStyle = '#FFFFFF';
+				}
+				ctx.stroke();
+			}
+
+		}
+		function canvas_arrow(fromx,fromy,degrees,len=50) {
+				
+                //variables to be used when creating the arrow
+                var c = document.getElementById("overlay");
+				//var fromx = c.width/2
+				//var fromy = c.height/2
+                var ctx = c.getContext("2d");
+                var headlen = 10;
+				
+                var angle = degrees*Math.PI/180.0
+				var tox = fromx + Math.cos(angle)*len
+				var toy = fromy //+ Math.sin(angle)*len
+				
+                //starting path of the arrow from the start square to the end square and drawing the stroke
+                ctx.beginPath();
+                ctx.moveTo(fromx, fromy);
+                ctx.lineTo(tox, toy);
+                ctx.strokeStyle = "#ff0000";
+                ctx.lineWidth = 15;
+                ctx.stroke();
+
+                //starting a new path from the head of the arrow to one of the sides of the point
+                ctx.beginPath();
+                ctx.moveTo(tox, toy);
+                ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7),toy-headlen*Math.sin(angle-Math.PI/7));
+
+                //path from the side point of the arrow, to the other side point
+                ctx.lineTo(tox-headlen*Math.cos(angle+Math.PI/7),toy-headlen*Math.sin(angle+Math.PI/7));
+
+                //path from the side point back to the tip of the arrow, and then again to the opposite side point
+                ctx.lineTo(tox, toy);
+                ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7),toy-headlen*Math.sin(angle-Math.PI/7));
+
+                //draws the paths created above
+                ctx.strokeStyle = "#ff0000";
+                ctx.lineWidth = 15;
+                ctx.stroke();
+                ctx.fillStyle = "#ff0000";
+                ctx.fill();
+            }
+			
+			function colourNameToHex(colour)
+{
+    var colours = {"aliceblue":"#f0f8ff","antiquewhite":"#faebd7","aqua":"#00ffff","aquamarine":"#7fffd4","azure":"#f0ffff",
+    "beige":"#f5f5dc","bisque":"#ffe4c4","black":"#000000","blanchedalmond":"#ffebcd","blue":"#0000ff","blueviolet":"#8a2be2","brown":"#a52a2a","burlywood":"#deb887",
+    "cadetblue":"#5f9ea0","chartreuse":"#7fff00","chocolate":"#d2691e","coral":"#ff7f50","cornflowerblue":"#6495ed","cornsilk":"#fff8dc","crimson":"#dc143c","cyan":"#00ffff",
+    "darkblue":"#00008b","darkcyan":"#008b8b","darkgoldenrod":"#b8860b","darkgray":"#a9a9a9","darkgreen":"#006400","darkkhaki":"#bdb76b","darkmagenta":"#8b008b","darkolivegreen":"#556b2f",
+    "darkorange":"#ff8c00","darkorchid":"#9932cc","darkred":"#8b0000","darksalmon":"#e9967a","darkseagreen":"#8fbc8f","darkslateblue":"#483d8b","darkslategray":"#2f4f4f","darkturquoise":"#00ced1",
+    "darkviolet":"#9400d3","deeppink":"#ff1493","deepskyblue":"#00bfff","dimgray":"#696969","dodgerblue":"#1e90ff",
+    "firebrick":"#b22222","floralwhite":"#fffaf0","forestgreen":"#228b22","fuchsia":"#ff00ff",
+    "gainsboro":"#dcdcdc","ghostwhite":"#f8f8ff","gold":"#ffd700","goldenrod":"#daa520","gray":"#808080","green":"#008000","greenyellow":"#adff2f",
+    "honeydew":"#f0fff0","hotpink":"#ff69b4",
+    "indianred ":"#cd5c5c","indigo":"#4b0082","ivory":"#fffff0","khaki":"#f0e68c",
+    "lavender":"#e6e6fa","lavenderblush":"#fff0f5","lawngreen":"#7cfc00","lemonchiffon":"#fffacd","lightblue":"#add8e6","lightcoral":"#f08080","lightcyan":"#e0ffff","lightgoldenrodyellow":"#fafad2",
+    "lightgrey":"#d3d3d3","lightgreen":"#90ee90","lightpink":"#ffb6c1","lightsalmon":"#ffa07a","lightseagreen":"#20b2aa","lightskyblue":"#87cefa","lightslategray":"#778899","lightsteelblue":"#b0c4de",
+    "lightyellow":"#ffffe0","lime":"#00ff00","limegreen":"#32cd32","linen":"#faf0e6",
+    "magenta":"#ff00ff","maroon":"#800000","mediumaquamarine":"#66cdaa","mediumblue":"#0000cd","mediumorchid":"#ba55d3","mediumpurple":"#9370d8","mediumseagreen":"#3cb371","mediumslateblue":"#7b68ee",
+    "mediumspringgreen":"#00fa9a","mediumturquoise":"#48d1cc","mediumvioletred":"#c71585","midnightblue":"#191970","mintcream":"#f5fffa","mistyrose":"#ffe4e1","moccasin":"#ffe4b5",
+    "navajowhite":"#ffdead","navy":"#000080",
+    "oldlace":"#fdf5e6","olive":"#808000","olivedrab":"#6b8e23","orange":"#ffa500","orangered":"#ff4500","orchid":"#da70d6",
+    "palegoldenrod":"#eee8aa","palegreen":"#98fb98","paleturquoise":"#afeeee","palevioletred":"#d87093","papayawhip":"#ffefd5","peachpuff":"#ffdab9","peru":"#cd853f","pink":"#ffc0cb","plum":"#dda0dd","powderblue":"#b0e0e6","purple":"#800080",
+    "rebeccapurple":"#663399","red":"#ff0000","rosybrown":"#bc8f8f","royalblue":"#4169e1",
+    "saddlebrown":"#8b4513","salmon":"#fa8072","sandybrown":"#f4a460","seagreen":"#2e8b57","seashell":"#fff5ee","sienna":"#a0522d","silver":"#c0c0c0","skyblue":"#87ceeb","slateblue":"#6a5acd","slategray":"#708090","snow":"#fffafa","springgreen":"#00ff7f","steelblue":"#4682b4",
+    "tan":"#d2b48c","teal":"#008080","thistle":"#d8bfd8","tomato":"#ff6347","turquoise":"#40e0d0",
+    "violet":"#ee82ee",
+    "wheat":"#f5deb3","white":"#ffffff","whitesmoke":"#f5f5f5",
+    "yellow":"#ffff00","yellowgreen":"#9acd32"};
+
+    if (typeof colours[colour.toLowerCase()] != 'undefined')
+        return colours[colour.toLowerCase()];
+
+    return false;
+}
+  </script>
+</body>
+</html>

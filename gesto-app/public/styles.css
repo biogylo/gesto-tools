@@ -1,0 +1,142 @@
+video {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+html {
+	font-family: sans-serif;
+	background: #eee;
+	padding: 1rem;
+}
+
+.appform {
+	max-width: 70%;
+	margin: 0 auto;
+	padding: 10%;
+	background: white;
+}
+
+label {
+  font-size: 1.5rem !important;
+  color: #555555 !important;
+}
+
+
+#container {/* // these three entries are for adjusting a box with objects on the left, and right*/
+    width: 100%;
+    background-color: #ffcc33;
+    margin: auto;
+}
+#first {
+    width: 70%;
+    float: left;
+    height: 300px;
+    background-color: blue;
+}
+#second {
+    width: 30%;
+    float: right;
+    height: 300px;
+    background-color: green;
+}
+
+#clear {
+    clear: both;
+}
+
+.page-container {
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
+  display: inline-flex !important;
+}
+
+@media only screen and (max-width : 992px) {
+  .page-container {
+    padding-left: 0;
+    display: flex !important;
+  }
+}
+
+#navbar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.side-by-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.side-by-side >* {
+  margin: 0 5px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.margin-sm {
+  margin: 5px;
+}
+
+.margin {
+  margin: 20px;
+}
+
+button{
+  font-size: 30pt;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.pad-sides-sm {
+  padding: 0 8px !important;
+}
+
+#github-link {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid;
+  margin-bottom: 10px;
+}
+
+#overlay, .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+#facesContainer canvas {
+  margin: 10px;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    background: #26a69a;
+    border: 1px solid gray;
+    cursor: pointer;
+    color: #fff;
+    border-radius: .2em;
+}
